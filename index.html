@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Angka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: inline-block;
+            width: 80%;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Validasi Angka</h1>
+    <input type="text" id="numberInput" placeholder="Masukkan angka di sini">
+    <button onclick="validateNumber()">Validasi</button>
+    <div id="message" class="message"></div>
+</div>
+
+<script>
+    function validateNumber() {
+        const input = document.getElementById('numberInput').value;
+        const message = document.getElementById('message');
+        const regex = /^-?\d+(\.\d+)?(e[+-]?\d+)?$/i;
+
+        if (regex.test(input)) {
+            message.innerHTML = "Ya, itu adalah angka";
+            message.className = "message success";
+        } else {
+            message.innerHTML = "Tidak, itu bukan angka";
+            message.className = "message error";
+        }
+    }
+</script>
+
+</body>
+</html>
